@@ -7,11 +7,6 @@
 /************************************************
  ALIENTEK 战舰STM32F103开发板实验12
  OLED显示实验 
- 技术支持：www.openedv.com
- 淘宝店铺：http://eboard.taobao.com 
- 关注微信公众平台微信号："正点原子"，免费获取STM32资料。
- 广州市星翼电子科技有限公司  
- 作者：正点原子 @ALIENTEK
 ************************************************/
 	
  int main(void)
@@ -34,22 +29,22 @@
 		if(t!=calendar.sec)
 		{
 			t=calendar.sec;
-			OLED_ShowNum(0,24,calendar.w_year,4,12);  
+			OLED_ShowNum(0,24,calendar.w_year,4,12);  //年
 			  OLED_ShowString(24,24, "-",12); 
-			if(calendar.w_month<10) 
+			if(calendar.w_month<10) //小于10时显示补0  如09
 			 {	
 				 OLED_ShowNum(30,24,0,1,12);
-			   OLED_ShowNum(36,24,calendar.w_month,1,12);
+			   OLED_ShowNum(36,24,calendar.w_month,1,12);//月
 			 }else OLED_ShowNum(36,24,calendar.w_month,2,12);  
 		  	OLED_ShowString(42,24, "-",12); 
-			 if(calendar.w_date<10)
+			 if(calendar.w_date<10)  //日
 			 {
 				 OLED_ShowNum(48,24,0,1,12);
 		  	 OLED_ShowNum(54,24,calendar.w_date,1,12);  
 			 }else OLED_ShowNum(48,24,calendar.w_date,2,12);  
 			switch(calendar.week)
 			{
-				case 0:
+				case 0:   //显示星期几
 					 	OLED_ShowString(64,24,"Sunday",12);  
 					break;
 				case 1:
